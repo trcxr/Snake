@@ -14,7 +14,6 @@ public class SnakeController : MonoBehaviour
     private Bounds levelBounds;
     private float time;
 
-    private bool gameOver = false;
     private bool actionPending = false;
 
     // Start is called before the first frame update
@@ -37,9 +36,9 @@ public class SnakeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver)
+        if (Manager.Instance.gameOver)
         {
-            Manager.Instance.GameOver();
+            return;
         }
 
         time += Time.unscaledDeltaTime;
@@ -61,14 +60,14 @@ public class SnakeController : MonoBehaviour
                 snakeBody.transform.GetChild(i).position = currentPos[i + 1];
                 if (currentPos[0] == currentPos[i + 1])
                 {
-                    gameOver = true;
+                    Manager.Instance.gameOver = true;
                 }
             }
 
             if (currentPos[0].x >= levelBounds.extents.x || currentPos[0].x <= -levelBounds.extents.x ||
                 currentPos[0].z >= levelBounds.extents.z || currentPos[0].z <= -levelBounds.extents.z)
             {
-                gameOver = true;
+                Manager.Instance.gameOver = true;
             }
 
             if (currentPos[0] == foodSpawner.GetCurrentFoodItem().transform.position)

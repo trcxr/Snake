@@ -14,7 +14,8 @@ public class MenuUIManager : MonoBehaviour
         {
             topScoreText = GameObject.Find("UI/Panel/Top Score").GetComponent<Text>();
         }
-        topScoreText.text = "Top Score: " + MenuManager.Instance.topScore;
+        int topScore = PlayerPrefs.GetInt("TopScore", 0);
+        topScoreText.text = "Top Score: " + topScore;
     }
 
     public void StartScene(string sceneName)

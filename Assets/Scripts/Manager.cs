@@ -17,6 +17,12 @@ public class Manager : MonoBehaviour
     public Text streakMultiplierText;
     public Text scoreText;
 
+    public GameObject topPanel;
+    public GameObject endGamePanel;
+    public Text curerntScoreText;
+
+    [HideInInspector] public bool gameOver = false;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -27,9 +33,12 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = "0";
+        scoreText.text = "Score:\n0";
         streakMultiplierText.text = "x1";
         streakImage.color = Color.black;
+
+        topPanel.SetActive(true);
+        endGamePanel.SetActive(false);
     }
 
     public void UpdateScore(Food food)
@@ -45,17 +54,28 @@ public class Manager : MonoBehaviour
         }
         currentStreakColor = food.color;
 
-        scoreText.text = "" + score;
+        scoreText.text = "Score:\n" + score;
         streakMultiplierText.text = "x" + streakMultiplier;
         streakImage.color = currentStreakColor;
     }
 
     public void GameOver()
     {
-        if (score >= MenuManager.Instance.topScore)
-        {
-            MenuManager.Instance.topScore = score;
-        }
         SceneManager.LoadScene("Menu");
+    }
+
+    private void Update()
+    {
+        if (gameOver)
+        {
+            topPanel.SetActive(false);
+            endGamePanel.SetActive(true);
+            curerntScoreText.text = "Current Score: " + score;
+
+            if (score >= PlayerPrefs.GetInt("TopScore", 0))
+            {
+                PlayerPrefs.SetInt("TopScore", score);
+            }
+        }
     }
 }
