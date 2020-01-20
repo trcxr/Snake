@@ -47,4 +47,7 @@ For Example:
 ## Music
 Music is taken from Freesound.org
 
+## Video
+A gameplay video is available on [YouTube](https://www.youtube.com/watch?v=5sCbNFI7nWc "3D Snake").
+
 ***More details will be updated as and when added to the game.***
