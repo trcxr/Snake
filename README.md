@@ -1,4 +1,4 @@
-# Assignment_AmanAhuja - Snake Game
+# Snake
 
 ## Overview
 The game is a remake of the classic snake with some additional features.
