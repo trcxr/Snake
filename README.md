@@ -1,5 +1,8 @@
 # Snake
 
+## Video
+A gameplay video is available on [YouTube](https://www.youtube.com/watch?v=5sCbNFI7nWc "3D Snake").
+
 ## Overview
 The game is a remake of the classic snake with some additional features.
 
@@ -46,8 +49,5 @@ For Example:
 
 ## Music
 Music is taken from Freesound.org
-
-## Video
-A gameplay video is available on [YouTube](https://www.youtube.com/watch?v=5sCbNFI7nWc "3D Snake").
 
 ***More details will be updated as and when added to the game.***
